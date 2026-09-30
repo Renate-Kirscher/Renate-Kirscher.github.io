@@ -75,13 +75,12 @@
   .pop a.row h5{font-family:'Crimson Text',serif;font-size:15.5px;font-weight:600;line-height:1.25}
   .pop .close{position:absolute;top:6px;right:9px;cursor:pointer;color:var(--stamp);font-size:18px;line-height:1}
 
-  footer{background:var(--stamp2);color:#f6dfe4;text-align:center;padding:24px;font-size:14px;font-family:'Caveat',cursive}
-  footer span{font-size:18px}
+  body{padding-bottom:56px}   /* Luft unter der Karte (Fußzeile entfernt) */
 </style>
 </head>
 <body>
 <div class="bar">
-  <a href="home-C-tagebuch.html">← Startseite</a>
+  <a href="./">← Startseite</a>
   <span class="crumb">Startseite › Renate in <b>Japan</b></span>
 </div>
 
@@ -90,7 +89,8 @@
   <div class="region">Reisetagebuch № 5 · Ostasien · 2026</div>
   <p>Erste Schritte in Nippon, dem Land der aufgehenden Sonne: von der Ankunft bei Freundin
      Yasuko in Nagoya zur Kirschblütenzeit über Matsumoto am Fuße der japanischen
-     Nordalpen zurück in Yasukos Vorstadt – mit Ramen, Soba und Matcha.</p>
+     Nordalpen zurück in Yasukos Vorstadt und nach Handa zur Essigbrauerei – mit Ramen, Soba,
+     Sushi und Matcha.</p>
 </header>
 
 <div class="section">
@@ -104,7 +104,6 @@
 
 <div class="pop" id="pop"><span class="close" id="popClose">×</span><div id="popInner"></div></div>
 
-<footer><span>Mit Liebe gereist und gekocht</span> · jewishgermanculturecooking.com</footer>
 
 <script>
 /* ── Japan entries so far ─────────────────────────────────────────────── */
@@ -113,10 +112,12 @@ const ENTRIES=[
  {n:2, date:'31. Mai 2026',  loc:'Matsumoto', t:'Matsumoto – Tor zu den Nordalpen'},
  {n:3, date:'16. Juli 2026', loc:'Matsumoto', t:'Matsumoto City Museum'},
  {n:4, date:'30. August 2026', loc:'Nagoya',   t:'Nagoya – ein Tag auf eigene Faust'},
+ {n:5, date:'30. September 2026', loc:'Handa', t:'Handa – Mizkan Museum und die japanische Esskultur'},
 ];
 const PLACES={
  Matsumoto:{name:'Matsumoto', sub:'松本 · Nordalpen', pin:[274.8,375.0], card:[430,332,'r']},
  Nagoya:   {name:'Nagoya',    sub:'名古屋 · Ankunft',  pin:[243.0,415.5], card:[204,372,'l']},
+ Handa:    {name:'Handa',     sub:'半田 · Essig & Sake', pin:[249.0,432.0], card:[300,480,'r']},
 };
 const href=n=>`eintrag-japan-${n}.html`;
 const ns="http://www.w3.org/2000/svg";

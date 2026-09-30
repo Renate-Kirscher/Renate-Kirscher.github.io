@@ -1,10 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<title>Reisetagebuch</title>
-<meta http-equiv="refresh" content="0; url=home-C-tagebuch.html">
-<link rel="canonical" href="home-C-tagebuch.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renates Reisetagebuch</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parch:#EFE2C5; --parch2:#E4D2AC; --edge:#C9AE78; --ink:#3A2A18;
+    --stamp:#7A3A1C; --stamp2:#9A4520; --teal:#2C5A52; --gold:#A8782A;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--parch);color:var(--ink);font-family:'Crimson Text',Georgia,serif;
+    background-image:radial-gradient(rgba(150,110,60,.05) 1px,transparent 1px);background-size:14px 14px}
+
+  header{text-align:center;padding:36px 24px 4px}
+  /* title: "Reisetage·koch·buch" – the cooking slipped into the travel diary */
+  .title{position:relative;display:inline-block;padding-top:.8em}
+  header h1{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(34px,6.4vw,68px);
+    line-height:1;letter-spacing:.5px;color:var(--ink)}
+  header h1 .koch{position:relative;font-style:italic;color:var(--stamp);padding:0 .1em 0 .03em}
+  header h1 .koch::after{content:'';position:absolute;left:4%;right:4%;bottom:-.08em;height:.16em;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C25 1 45 9 70 4 S95 5 98 3' fill='none' stroke='%23A8782A' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+  .title .mein{position:absolute;left:-.55em;top:-.05em;font-family:'Caveat',cursive;font-weight:700;
+    font-size:clamp(24px,3.6vw,40px);color:var(--stamp2);transform:rotate(-9deg);transform-origin:left bottom}
+  .flourish{display:block;width:min(420px,70%);height:auto;margin:10px auto 0;overflow:visible}
+  .flourish path.r{fill:none;stroke:var(--stamp);stroke-width:1.6;stroke-dasharray:1.5 6;stroke-linecap:round;opacity:.8}
+  .flourish .st{fill:#E6A91E;stroke:var(--stamp);stroke-width:.9}
+
+  .map-frame{max-width:1000px;margin:22px auto 0;padding:0 12px}
+  svg.map{width:100%;height:auto;display:block;filter:sepia(.25)}
+  .land{fill:#D9C39A;stroke:#BFA46F;stroke-width:.6;stroke-linejoin:round}
+  .trip .hl{fill:#A0431C;stroke:#5E2410;stroke-width:.8;stroke-linejoin:round;transition:fill .2s}
+  .trip:hover .hl{fill:#7A2E10}
+  .trip.latest .hl{fill:#E6A91E;stroke:#7A3A1C;stroke-width:1.2}
+  .trip.latest:hover .hl{fill:#F2BC3A}
+  .hl-halo{fill:none;stroke:#E6A91E;stroke-width:9;stroke-linejoin:round;opacity:.45;animation:halo 2.4s ease-in-out infinite}
+  @keyframes halo{0%,100%{opacity:.18;stroke-width:6}50%{opacity:.6;stroke-width:13}}
+  .trip .mk-lbl{paint-order:stroke;stroke:#F6ECD2;stroke-width:3.5px;stroke-linejoin:round}
+  .co-line{stroke:#7A3A1C;stroke-width:1.4}
+  .co-box{fill:#FFF6DC;stroke:#C8911F;stroke-width:2;filter:drop-shadow(0 3px 6px rgba(80,50,20,.25))}
+  .co-kick{font-family:'Caveat',cursive;font-size:19px;font-weight:700;fill:#9A4520}
+  .co-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;fill:#3A2A18}
+  .co-date{font-family:'Crimson Text',serif;font-size:15px;font-style:italic;fill:#6a5638}
+  .callout:hover .co-box{fill:#FFEFC2}
+  .mk-lbl{font-family:'Caveat',cursive;font-size:18px;fill:var(--ink);pointer-events:none}
+
+  .stamps{max-width:1180px;margin:26px auto 0;padding:0 24px;
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px;justify-items:center}
+  .stamp{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit;width:100%;max-width:260px}
+  .seal{width:150px;height:150px;border-radius:50%;border:3px double var(--stamp);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    color:var(--stamp);background:rgba(255,255,255,.18);transition:transform .3s,background .3s;
+    transform:rotate(var(--rot,-3deg))}
+  .stamp:hover .seal{transform:rotate(0deg) scale(1.05);background:rgba(154,69,32,.10)}
+  .seal .no{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:2px}
+  .seal .nm{font-family:'Playfair Display',serif;font-size:21px;line-height:1.05;padding:2px 8px;margin:3px 0}
+  .seal .co{font-size:11px;letter-spacing:2px;text-transform:uppercase}
+  .stamp p{font-size:15.5px;line-height:1.5;color:#5c4a30;text-align:center;margin-top:14px}
+  .stamp{border-radius:14px;padding:10px 6px 12px;transition:background .25s}
+  .stamp:hover{background:rgba(255,255,255,.35)}
+  .stamp .count{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--stamp2);margin-top:8px;border-bottom:1px solid transparent;transition:border-color .2s}
+  .stamp:hover .count{border-bottom-color:var(--stamp2)}
+  .sealbox{height:150px;display:flex;align-items:center;justify-content:center}
+  /* newest trip: same card as the "Neuester Eintrag" callout on the map (.co-box etc.) */
+  .stamp-latest .seal{width:auto;height:auto;min-width:150px;border:2px solid #C8911F;border-radius:10px;
+    background:#FFF6DC;box-shadow:0 3px 6px rgba(80,50,20,.25);transform:none;padding:10px 16px;
+    align-items:flex-start;text-align:left}
+  .stamp-latest:hover .seal{transform:none;background:#FFEFC2}
+  .seal .co-kick{font-family:'Caveat',cursive;font-size:19px;font-weight:700;color:#9A4520;line-height:1.1}
+  .seal .co-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#3A2A18;line-height:1.2}
+  .seal .co-date{font-family:'Crimson Text',serif;font-size:15px;font-style:italic;color:#6a5638}
+
+
+  /* keep all five stamps in one row on narrow screens (e.g. iPad portrait) */
+  @media(max-width:860px){
+    .stamps{gap:12px}
+    .seal{width:108px;height:108px;border-width:2px}
+    .sealbox{height:108px}
+    .stamp-latest .seal{min-width:0;padding:7px 10px}
+    .seal .co-kick{font-size:14px}.seal .co-name{font-size:15px}.seal .co-date{font-size:11px}
+    .seal .no{font-size:10px;letter-spacing:1px}
+    .seal .nm{font-size:14px}
+    .seal .co{font-size:9px}
+    .stamp p{font-size:12.5px;margin-top:8px}
+    .stamp .count{font-size:11px;letter-spacing:1px}
+  }
+  @media(max-width:560px){   /* Handy: Stempel zweispaltig statt fünf nebeneinander */
+    .stamps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}
+  }
+</style>
 </head>
-<body><p><a href="home-C-tagebuch.html">Zum Reisetagebuch</a></p></body>
+<body>
+
+<header>
+  <div class="title">
+    <span class="mein">Mein</span>
+    <h1>Reisetage<span class="koch">koch</span>buch</h1>
+  </div>
+  <svg class="flourish" viewBox="0 0 420 26" aria-hidden="true">
+    <path class="r" d="M6,17 C70,4 120,24 190,13 S320,4 396,13"/>
+    <circle cx="6" cy="17" r="2.6" fill="#7A3A1C"/>
+    <path class="st" d="M407,4 L409.4,10.6 L416.4,10.8 L410.8,15 L412.8,21.8 L407,17.8 L401.2,21.8 L403.2,15 L397.6,10.8 L404.6,10.6 Z"/>
+  </svg>
+</header>
+
+<div class="map-frame">
+  <svg class="map" viewBox="0 0 1000 500" id="map" aria-label="Weltkarte mit Reiseroute"></svg>
+</div>
+
+<div class="stamps" id="stamps"></div>
+
+
+<script src="assets/world.js"></script>
+<script>
+  const order=Object.values(DESTINATIONS).sort((a,b)=>a.order-b.order);
+  const ns="http://www.w3.org/2000/svg";
+  const map=document.getElementById('map');
+  const land=document.createElementNS(ns,'path');
+  map.setAttribute('viewBox',WORLD_VIEWBOX);
+  if(typeof WORLD_DECOR!=='undefined'&&WORLD_DECOR)map.insertAdjacentHTML('beforeend',WORLD_DECOR);
+  land.setAttribute('d',WORLD_PATH);land.setAttribute('class','land');map.appendChild(land);
+
+  const latestSlug=(typeof LATEST_ENTRY!=='undefined'&&LATEST_ENTRY)?LATEST_ENTRY.slug:null;
+
+  /* trip countries: filled, slightly inflated shapes (WORLD_HIGHLIGHT from build_worldmap.py) */
+  const VBW=+WORLD_VIEWBOX.split(' ')[2];
+  const HL=(typeof WORLD_HIGHLIGHT!=='undefined')?WORLD_HIGHLIGHT:{};
+  const el=(tag,attrs,parent)=>{const e=document.createElementNS(ns,tag);
+    for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;};
+  let latestD=null;
+  order.forEach(d=>{
+    const h=HL[d.slug]; if(!h)return;
+    const isLatest=d.slug===latestSlug;
+    const g=el('a',{href:`reise-${d.slug}.html`,class:'trip'+(isLatest?' latest':'')},map);
+    const t=el('title',{},g); t.textContent=d.name;
+    if(isLatest){el('path',{d:h.d,class:'hl-halo'},g);latestD=d;}
+    el('path',{d:h.d,class:'hl'},g);
+    if(isLatest)return;                       /* the newest one gets the callout below */
+    const flip=h.cx>VBW*0.62;
+    const lbl=el('text',{x:flip?h.x0-7:h.x1+7,y:h.cy+5,class:'mk-lbl'},g);
+    if(flip)lbl.setAttribute('text-anchor','end');
+    lbl.textContent=d.name;
+  });
+
+  /* newest entry: gold country, pulsing halo and a callout card */
+  if(latestD){
+    const h=HL[latestD.slug], VBH=+WORLD_VIEWBOX.split(' ')[3], gap=24, pad=10;
+    const g=el('a',{href:LATEST_ENTRY.href,class:'callout'});
+    map.insertBefore(g,map.querySelector('a.trip'));      /* leader line runs under the countries */
+    const line=el('line',{class:'co-line'},g);
+    const box=el('rect',{rx:10,class:'co-box'},g);
+    const tx=el('text',{class:'co-text'},g);
+    const l1=el('tspan',{x:0,dy:0,class:'co-kick'},tx); l1.textContent='★ Neuester Eintrag';
+    const l2=el('tspan',{x:0,dy:22,class:'co-name'},tx); l2.textContent=latestD.name;
+    const l3=el('tspan',{x:0,dy:19,class:'co-date'},tx); l3.textContent=LATEST_ENTRY.date;
+    const bb=tx.getBBox(), w=bb.width+2*pad, hgt=bb.height+2*pad;
+    /* beside the country if there is room, otherwise below it (kept inside the map) */
+    let x0, y0;
+    if(h.x1+gap+w<=VBW-4){x0=h.x1+gap;y0=h.cy-hgt/2;}
+    else{x0=Math.min(Math.max(h.cx,4),VBW-w-4);y0=h.y1+gap;}
+    y0=Math.max(4,Math.min(y0,VBH-hgt-4));
+    line.setAttribute('x1',h.cx);line.setAttribute('y1',h.cy);
+    line.setAttribute('x2',Math.min(Math.max(h.cx,x0+12),x0+w-12));line.setAttribute('y2',y0+hgt/2);
+    tx.setAttribute('transform',`translate(${x0+pad-bb.x},${y0+pad-bb.y})`);
+    box.setAttribute('x',x0);box.setAttribute('y',y0);box.setAttribute('width',w);box.setAttribute('height',hgt);
+  }
+
+  const stamps=document.getElementById('stamps');
+  const rots=['-4deg','3deg','-2deg','4deg','-3deg'];
+  order.forEach((d,i)=>{
+    const isLatest=d.slug===latestSlug;
+    const a=document.createElement('a');
+    a.href=`reise-${d.slug}.html`;
+    a.className='stamp'+(isLatest?' stamp-latest':'');
+    const count=d.entries?`${d.entries} ${d.entries===1?'Eintrag':'Einträge'} ›`:'Lesen ›';
+    const seal=isLatest
+      ? `<div class="seal"><div class="co-kick">★ Neuester Eintrag</div><div class="co-name">${d.name}</div>
+           <div class="co-date">${LATEST_ENTRY.date}</div></div>`
+      : `<div class="seal" style="--rot:${rots[i%rots.length]}">
+           <div class="no">№ ${d.order}</div><div class="nm">${d.name}</div><div class="co">${d.country}</div></div>`;
+    a.innerHTML=`<div class="sealbox">${seal}</div><p>${d.desc}</p><span class="count">${count}</span>`;
+    stamps.appendChild(a);
+  });
+</script>
+<script src="assets/feedback.js"></script>
+</body>
 </html>
