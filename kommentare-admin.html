@@ -59,7 +59,10 @@ Worker-Einrichtung; es bleibt nur in diesem Browser gespeichert.</p>
 (function () {
   var api = document.getElementById('api'), tok = document.getElementById('tok');
   var out = document.getElementById('out');
-  api.value = localStorage.getItem('rtb-api') || '';
+  var API_DEFAULT = 'https://reisetagebuch-kommentare.kommentarr.workers.dev';
+  var savedApi = (localStorage.getItem('rtb-api') || '').trim();
+  // only reuse a saved address if it is a bare Worker URL (no path), else the default
+  api.value = /^https:\/\/[^\/]+\.workers\.dev\/?$/.test(savedApi) ? savedApi : API_DEFAULT;
   tok.value = localStorage.getItem('rtb-tok') || '';
 
   var MON = ['Januar','Februar','März','April','Mai','Juni','Juli','August',
