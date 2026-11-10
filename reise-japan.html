@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renate in Japan – Reisetagebuch</title>
+<title>Japan – Reisetagebuch</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Caveat:wght@500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{   /* Japan · rot & weiß (Hinomaru) */
@@ -83,16 +83,13 @@
 <body>
 <div class="bar">
   <a href="./">← Startseite</a>
-  <span class="crumb">Startseite › Renate in <b>Japan</b></span>
+  <span class="crumb">Startseite › <b>Japan</b></span>
 </div>
 
 <header>
-  <h1>Renate in Japan <span class="native">日本</span></h1>
-  <div class="region">Reisetagebuch № 5 · Ostasien · 2026</div>
-  <p>Erste Schritte in Nippon, dem Land der aufgehenden Sonne: von der Ankunft bei Freundin
-     Yasuko in Nagoya zur Kirschblütenzeit über Matsumoto am Fuße der japanischen
-     Nordalpen zurück in Yasukos Vorstadt und nach Handa zur Essigbrauerei – mit Ramen, Soba,
-     Sushi und Matcha.</p>
+  <h1>Japan <span class="native">日本</span></h1>
+  <div class="region">Ostasien · 2026</div>
+  <p>Wie überall brachte mich auch hierher die Neugier auf das, was einen mir sehr wertvollen Menschen geformt hat.</p>
 </header>
 
 <div class="section">
@@ -115,11 +112,13 @@ const ENTRIES=[
  {n:3, date:'16. Juli 2026', loc:'Matsumoto', t:'Matsumoto City Museum'},
  {n:4, date:'30. August 2026', loc:'Nagoya',   t:'Nagoya – ein Tag auf eigene Faust'},
  {n:5, date:'30. September 2026', loc:'Handa', t:'Handa – Mizkan Museum und die japanische Esskultur'},
+ {n:6, date:'10. November 2026', loc:'Kyoto', t:'Nagoya Adieu – Kyoto Kon’nichiwa'},
 ];
 const PLACES={
  Matsumoto:{name:'Matsumoto', sub:'松本 · Nordalpen', pin:[274.8,375.0], card:[430,332,'r']},
  Nagoya:   {name:'Nagoya',    sub:'名古屋 · Ankunft',  pin:[243.0,415.5], card:[204,372,'l']},
  Handa:    {name:'Handa',     sub:'半田 · Essig & Sake', pin:[249.0,432.0], card:[300,480,'r']},
+ Kyoto:    {name:'Kyoto',     sub:'京都 · Kaiserstadt', pin:[212.0,418.0], card:[196,532,'l']},
 };
 const href=n=>`eintrag-japan-${n}.html`;
 const ns="http://www.w3.org/2000/svg";

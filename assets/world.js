@@ -19,17 +19,17 @@ const DESTINATIONS = {
     "name": "Japan",
     "country": "Ostasien",
     "order": 5,
-    "desc": "Neu seit 2026 – erste Schritte in Nippon: von der Ankunft zur Kirschblütenzeit über Matsumoto, das Tor zu den japanischen Nordalpen, zurück in Yasukos Nagoya und zur Essigbrauerei nach Handa.",
+    "desc": "Wie überall brachte mich auch hierher die Neugier auf das, was einen mir sehr wertvollen Menschen geformt hat.",
     "x": 758.6,
     "y": 136.7,
-    "entries": 5,
+    "entries": 6,
     "slug": "japan"
   },
   "israel": {
     "name": "Israel",
     "country": "Naher Osten",
     "order": 1,
-    "desc": "Mit dem Containerschiff nach Erez-Israel: Haifa und Galiläa, Jerusalems Altstadt, Tel Aviv und das Tote Meer – und die jüdischen Festtage mit ihren Köstlichkeiten.",
+    "desc": "Ein Ort, den das Böse immer den Menschen nehmen wollte und für den ich ebenso überzeugt wurde, durch Menschen, dass es immer einen Platz in allen Menschen haben wird, und zwischen ihnen. Ein Ort, an dem ich dem Edelsten, dem Schönsten, dem Erhabensten des Menschlichen so nah war und doch nie vergessen darf, wie nah auch die Gegenteile waren, sind und immer sein werden.",
     "x": 500.6,
     "y": 158.8,
     "entries": 38,
@@ -39,7 +39,7 @@ const DESTINATIONS = {
     "name": "Australien",
     "country": "Ozeanien",
     "order": 4,
-    "desc": "Tasmanien: von Hobart und Strahan zum Cradle Mountain, der Wine Glass Bay und Port Arthur – Seefisch, Wildnis und die Tasmanischen Teufel.",
+    "desc": "Weniger Freundschaften als Familie, aber auch das Verständnis der Sprache, machen diese Insel sowohl fern als auch ganz nah.",
     "x": 766.5,
     "y": 336.3,
     "entries": 8,
@@ -49,7 +49,7 @@ const DESTINATIONS = {
     "name": "Ecuador",
     "country": "Südamerika",
     "order": 2,
-    "desc": "Von Quito und der Mitte der Welt über den Cotopaxi und die Quilotoa-Lagune bis zur Pazifikküste von Atacames und nach Salinas.",
+    "desc": "Aus keinem anderen Land, keiner anderen Kultur sind mir Menschen aller Generationen Freunde geblieben, denen auch ich Gastgeberin sein durfte und darf.",
     "x": 169.4,
     "y": 254.6,
     "entries": 12,
@@ -59,7 +59,7 @@ const DESTINATIONS = {
     "name": "Nürnberg / Franken",
     "country": "Deutschland",
     "order": 3,
-    "desc": "Heimat und Ausgangspunkt: vom Schulweg und fränkischen Flohmärkten über Jazz in Nürnberg bis zum Felsengarten Sanspareil und zur süßen Weihnachtszeit.",
+    "desc": "Von wo ich ausziehe und einen Teil, mal mehr mal weniger, mal schwer mal leicht, mal lustig oder ernst, anderswo ablege, und mich so oft freute darüber, wie es nach Jahren zurückkam.",
     "x": 448.2,
     "y": 107.8,
     "entries": 9,
@@ -71,9 +71,9 @@ const DESTINATIONS = {
 // rewrite this block when a new post is published; the cover page highlights
 // whichever destination it points to with a star, a date and a direct link.
 const LATEST_ENTRY = {
-  "slug": "manchester",
-  "nr": 1,
-  "title": "Six scones for Muster Hans!",
-  "date": "25. Oktober 2026",
-  "href": "eintrag-manchester-1.html"
+  "slug": "japan",
+  "nr": 6,
+  "title": "Nagoya Adieu – Kyoto Kon’nichiwa",
+  "date": "10. November 2026",
+  "href": "eintrag-japan-6.html"
 };
